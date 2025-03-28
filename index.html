@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>キャラ立体化くん</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin: 40px; }
+    img { max-width: 300px; margin: 10px; }
+    input[type=file] { margin: 20px; }
+  </style>
+</head>
+<body>
+  <h1>2Dキャラクター → ソフビ風立体化！</h1>
+
+  <form method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*" required><br>
+    <button type="submit">立体化する！</button>
+  </form>
+
+  {% if result %}
+    <h2>結果：</h2>
+    <img src="{{ url_for('static', filename='output.png') }}"><br>
+    <a href="/download">画像をダウンロード</a>
+  {% endif %}
+</body>
+</html>
